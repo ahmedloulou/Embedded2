@@ -1,54 +1,45 @@
-#include <avr/io.h>
-#include <avr/interrupt.h>
 #include <util/delay.h>
-#include "uart.h"
-unsigned char size;
+#include "Adc_pot.h"
+#include "Lcd.h"
+#include "Uart.h"
+#include <stdlib.h>
 
-void leddred_init() {
-    DDRB = DDRB | (1 << 0);  
-    PORTB = PORTB & ~(1 << 0); 
-    DDRD = DDRD & ~(1 << PD2);  
-    PORTD = PORTD | (1 << PD2);  
-    EICRA = EICRA | (1 << ISC01); 
-    EIMSK = EIMSK | (1 << INT0);  
-    sei(); 
-}
-void leddred_init();
-   
 int main(void) {
-    leddred_init();
-    Uart_Init();
+ 
+  unsigned short adc_reading;
+  unsigned char buffer[4];
+  
 
-    while (1) {
+  Adc_Init(); 
+  Uart_Init();
+  LCD_Init();
 
-        unsigned char letter = Uart_ReadData();
 
-        if (letter == '1') {
+  while (1) {
+    _delay_ms(100);                    
+    
+    adc_reading = Adc_ReadChannel(1);
+    
+    itoa(adc_reading, buffer, 10);
+    
+    Uart_SendString(buffer, 4);
+    Uart_SendChar('\n');
+    
+    LCD_Clear();
+    LCD_String("ADC Value: ");
+    LCD_String(buffer);
+    
 
-            PORTB = PORTB | (1 << 0);  
-
-        } 
-        else if (letter == '0') {
-
-            PORTB = PORTB & ~(1 << 0); 
-        }
+    if (adc_reading >= 400 && adc_reading < 700) {
+      PORTD|= (1 << 2);     
+    } else if (adc_reading >= 700 && adc_reading < 1000) {
+      PORTD &= ~(1 << 2);       
+    } else {
+      PORTD &= ~(1 << 2);        
     }
+  }
 
-    return 0;
-}
-
-
-void PUSHbutton(void) {
-    if (((PIND >> 2) & 1) == 0) {
-        Uart_SendString("button is pressed\n\r", sizeof(size));
-        _delay_ms(100);
-    }
-}
-
-
-
-ISR(INT0_vect) {
-    Uart_SendString("button is pressed\n\r", sizeof(size));
+  return 0;
 }
 
 
