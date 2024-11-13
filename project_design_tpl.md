@@ -53,7 +53,8 @@ endif
 ```
 
 ## Functional Description
-The following chapter describes the software functionality.  The following is a list of suggested sections to be considered for inclusion.
+This code takes the value of an analogue sensor, compares it to upper and lower limits that can be set, and shows the result on an LCD screen. It sets up the ADC, UART, and LCD modules and their starting values for upperlimit and lowerlimit after setting up certain pins as inputs with pull-up resistors for buttons. The code reads the sensor value from the ADC, turns it into a string, sends it over UART, and shows the string along with the current limits on the LCD in the main loop. Users can change these limits on the fly by pressing buttons. The code turns off an LED and displays "OK" on the LCD if the sensor reading is within the range given. If it's not, it turns on the LED and displays "NOK." This shows how to watch and control an analogue input in real time with thresholds that can be changed.
+
 
 ## Implementation of the Module
 This chapter discusses the detailed design of the module.
