@@ -40,16 +40,15 @@ rectangle ADC_LCD_System {
 ### Assumptions & Constraints
 Indicate constraints of the low level design and any assumptions appropriate for the design.
 
-```plantuml
 @startuml
-(*) --> init
---> configure
-if value > 15
-  --> increment value
+(*) --> initialization
+--> configuration
+if upperlimit >value > lowerlimit 
+  --> display on lcd "OK"
   --> (*)
 else
-  --> decrement value
-  --> (*)
+  --> LED and buzzer turns on
+  --> display on lcd "NOK"
 endif
 @enduml
 ```
