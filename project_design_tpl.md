@@ -21,15 +21,6 @@ Explanation:-
 * Also a reference for more project information can be given.
 * Classification for P2, P1, and P0. shall be given.
 
-### Defnitions and Acronym
-| **Abbreviation** |             **Meaning**             |
-|:----------------:|:-----------------------------------:|
-|      (RT)OS      |    (Real-Time) Operating System     |
-|       API        |    Application Program Interface    |
-|       CDD        |      Component Design Document      |
-|       HWI        |         HardWare Interfaces         |
-|       NVM        |         Non Volatile Memory         |
-|       SRS        | Software Requirements Specification |
 
 ## Architectural Overview
 
