@@ -1,6 +1,6 @@
-#include <util/delay.h>
-#include "Adc_pot.h"
-#include "Lcd.h"
+#include <util/delay.h> // include the delay library.
+#include "Adc_pot.h"    // include the header file for the analog digital converter.
+#include "Lcd.h"        // include the header file for the lcd functions.
 #include "Uart.h"
 #include <stdlib.h>
 
