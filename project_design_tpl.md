@@ -8,7 +8,9 @@
 
 ## Introduction
 
-Provide an overview of the entire document:
+The purpose of this report is to show how an analog sensor sends its value to the Arduino and how an analog digital converter turns that signal into a digital signal that can be shown on an LCD screen. In addition to setting the sensors limits by making a range that can be changed with buttons.
+Our project's goal is to show the value from the potentiometer, which is an analog sensor that sends a signal to the Arduino that gets converted to a digital signal using the built in ADC in the code. To do this, we use four buttons, two for the upper limit and two for the lower limit, to change the potentiometer's range and show the limits, on a 16x2 LCD, along with the potentiometer's value.
+A potentiometer, an ADC, and an LCD can be used to model real-world control systems and show how analog to digital conversion works in real life. As an example, the potentiometer can be used as a thermostat dial in a device that controls temperature. The temperature setting is changed by moving the potentiometer. The ADC reads the temperature setting and turns it into a precise number that is shown on the LCD. This acts like setting and checking the temperature in a home's heating or cooling system. A light dimmer control is another example. In this case, the potentiometer is a dimmer button. When you turn the potentiometer, the brightness that you see changes, and the ADC turns this into a percentage that is shown on the LCD. This simulation gives a good picture of how light levels can be changed in current lighting systems. It also shows how analog input and digital output work together.
 
 * Identify the system/product using any applicable names and/or version numbers.
 
