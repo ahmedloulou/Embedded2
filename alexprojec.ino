@@ -8,18 +8,18 @@
 
 int main(void) {
  
-  unsigned short adc_reading;
+  unsigned short adcreading;
   unsigned short upperlimit;
   unsigned short lowerlimit;
   unsigned char buffer[4];
-  DDRD = DDRD & ~(1 << PD3);  
-  PORTD = PORTD | (1 << PD3);
-  DDRD = DDRD & ~(1 << PD0);  
-  PORTD = PORTD | (1 << PD0);
-  DDRB = DDRB & ~(1 << PB4);  
-  PORTB = PORTB | (1 << PB4);
-  DDRB = DDRB & ~(1 << PB5);  
-  PORTB = PORTB | (1 << PB5);
+  DDRD &= ~(1 << PD3);  
+  PORTD |= (1 << PD3);
+  DDRD &= ~(1 << PD0);  
+  PORTD |= (1 << PD0);
+  DDRB &= ~(1 << PB4);  
+  PORTB |= (1 << PB4);
+  DDRB &= ~(1 << PB5);  
+  PORTB |= (1 << PB5);
 
 
   upperlimit = 700;
@@ -32,14 +32,14 @@ int main(void) {
   while (1) {
     _delay_ms(100);                    
     
-    adc_reading = Adc_ReadChannel(1);
-    itoa(adc_reading, buffer, 10);
+    adcreading = Adc_ReadChannel(1);
+    itoa(adcreading, buffer, 10);
     
     Uart_SendString(buffer, 4);
     Uart_SendChar('\n');
     
     LCD_Clear();
-    LCD_String("ADC Value: ");
+    LCD_String("Sensor: ");
     LCD_String(buffer);
     LCD_Command(0xC0);
     itoa(upperlimit, buffer, 10);
@@ -69,12 +69,12 @@ int main(void) {
 
     
 
-    if (adc_reading >= lowerlimit && adc_reading < upperlimit) {
-      PORTD|= (1 << 2); 
+    if (adcreading >= lowerlimit && adcreading < upperlimit) {
+      PORTD &= ~(1 << 2); 
       LCD_Command(0x8E);
       LCD_String("OK");          
-    } else {    
-      PORTD &= ~(1 << 2);   
+    } else {      
+      PORTD|= (1 << 2);
       LCD_Command(0x8D);
       LCD_String("NOK");
    
