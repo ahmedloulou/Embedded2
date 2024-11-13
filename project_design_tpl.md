@@ -1,10 +1,10 @@
 # Detailed Design Document
 
-| **Author**              | `Authors Name`                                       |
+| **Author**              | `Ahmed Loulou, Sherif Helmy, Youssef Abouelkheir`                                       |
 |:------------------------|:-----------------------------------------------------|
-| **Status**              | `Draft/Inspection/Approved`                          |
+| **Status**              | `Inspection`                          |
 | **Version**             | `1.0`                                                |
-| **Date**                | `dd/mm/yyyy`                                         |
+| **Date**                | `12/11/2024`                                         |
 
 ## Introduction
 
