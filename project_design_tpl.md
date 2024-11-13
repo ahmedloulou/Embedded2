@@ -39,7 +39,7 @@ rectangle ADC_LCD_System {
 
 ### Assumptions & Constraints
 Indicate constraints of the low level design and any assumptions appropriate for the design.
-
+```plantuml
 @startuml
 (*) --> initialization
 --> configuration
