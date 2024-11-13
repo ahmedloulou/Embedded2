@@ -3,10 +3,10 @@
 #endif
 #include "Adc_pot.h"
 
-void Adc_Init(void)
+void Adc_Init(void)  // defines the initialization of the adc
 {
 
-    ADMUX = (1<<REFS0);
+    ADMUX = (1<<REFS0);   // enables the pin by shifting 1.
  
 
     ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
