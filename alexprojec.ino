@@ -1,12 +1,12 @@
 #include <util/delay.h> // include the delay library.
 #include "Adc_pot.h"    // include the header file for the analog digital converter.
 #include "Lcd.h"        // include the header file for the lcd functions.
-#include "Uart.h"
-#include <stdlib.h>
+#include "Uart.h"       // include the header file for the uart communication.
+#include <stdlib.h>     // include the library for conversions to string and memory allocations.
 
 
 
-int main(void) {
+int main(void) {        
  
   unsigned short adcreading;
   unsigned short upperlimit;
