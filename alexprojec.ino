@@ -6,27 +6,27 @@
 
 
 
-int main(void) {        
+int main(void) {        // Start of the main function of the code.
  
-  unsigned short adcreading;
-  unsigned short upperlimit;
-  unsigned short lowerlimit;
-  unsigned char buffer[4];
-  DDRD &= ~(1 << PD3);  
-  PORTD |= (1 << PD3);
-  DDRD &= ~(1 << PD0);  
-  PORTD |= (1 << PD0);
-  DDRB &= ~(1 << PB4);  
-  PORTB |= (1 << PB4);
-  DDRB &= ~(1 << PB5);  
-  PORTB |= (1 << PB5);
+  unsigned short adcreading;    // defining adcreading as an unsigned short variable"holds only positive values and short because it holds short values maximum 165 bit"
+  unsigned short upperlimit;    // defining upperlimit as an unsigned short variable"holds only positive values and short because it holds short values maximum 165 bit"
+  unsigned short lowerlimit;    // defining lowerlimit as an unsigned short variable"holds only positive values and short because it holds short values maximum 165 bit"
+  unsigned char buffer[4];      // define the buffer as unsigned to only hold positive elemnts and 4 as to make it hold 4 elemnts.
+  DDRD &= ~(1 << PD3);          // define pin D3 as input for a push button
+  PORTD |= (1 << PD3);          // activate the internal pull up resistor.
+  DDRD &= ~(1 << PD0);          // define pin D3 as input for a push button
+  PORTD |= (1 << PD0);          // activate the internal pull up resistor.
+  DDRB &= ~(1 << PB4);          // define pin D3 as input for a push button
+  PORTB |= (1 << PB4);          // activate the internal pull up resistor.
+  DDRB &= ~(1 << PB5);          // define pin D3 as input for a push button.
+  PORTB |= (1 << PB5);          // activate the internal pull up resistor.
 
 
-  upperlimit = 700;
-  lowerlimit = 400;
-  Adc_Init(); 
-  Uart_Init();
-  LCD_Init();
+  upperlimit = 700;       // set the initial value of the upperlimit to 700.
+  lowerlimit = 400;       // set initial value for the lowerlimit to 400.
+  Adc_Init();             // include analog digital converter initialization.
+  Uart_Init();            // include uart communication initialization.
+  LCD_Init();             // include Lcd initialization.
 
 
   while (1) {
