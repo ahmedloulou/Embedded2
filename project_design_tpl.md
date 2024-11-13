@@ -78,13 +78,12 @@ If there is a complex file structure e.g. more than one c-file or more than two 
 ```plantuml
 @startuml
 package "pkg" {
-    [ABC_Init.c].>[ADC.h] : includes
-    [ABC_Init.c]...>[ABCi.h]
-    [ABC_Task.c]...>[ADC.h]
-    [ABC_Task.c]...>[ABCi.h] : includes
+    [Adc_pot.ino].>[Adc_pot.h] : includes
+    [Lcd.ino]...>[Lcd.h] : includes
+    [Uart.ino]...>[Uart.h] : includes
     interface Interf3
-    note left of ABC_Task.c: A top note
-    ABC_Init.c ..> Interf3 : internal interface
+    note left of Lcd.ino: A top note
+    Adc_pot.ino ..> Interf3 : internal interface
 }
 @enduml
 ```
