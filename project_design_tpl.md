@@ -18,10 +18,7 @@ A potentiometer, an ADC, and an LCD can be used to model real-world control syst
 This low-level design specification describes the internal structure and the functions of the software module. It describes the interaction, data structures, specific embedded constraints and background information about design. This specification is the basis for coding and is an input document for the corresponding module test specification. The terms Low-level design specification and module specification are used interchangeably in Valeo to refer to documents of this type.
 
 ### Scope
-Explanation:-
-* Give information on project context, where this document applies.
-* Also a reference for more project information can be given.
-* Classification for P2, P1, and P0. shall be given.
+This report describes how an Arduino-based system works and how it was designed. The system uses a potentiometer as an analogue input, an LCD as an output display, and buttons to change the upper and lower limit ranges on the fly. The potentiometer gives an analogue signal to the Arduino. The built-in ADC turns the signal into a digital value, which is then shown on a 16x2 LCD. The system lets users set these movable limits and see them along with the sensor's current value. This lets them model real-world uses like controlling the temperature or dimming the lights. This file is a basic outline for the software's framework, how its parts work together, and any built-in restrictions. It will help with future development and testing.
 
 
 ## Architectural Overview
