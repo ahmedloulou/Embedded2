@@ -57,11 +57,11 @@ int main(void) {
       upperlimit -= 10 ;
       _delay_ms(100);
     }  
-         if (((PINB >> 4) & 1) == 0) {
+    if (((PINB >> 4) & 1) == 0) {
       lowerlimit += 10 ;
       _delay_ms(100);
     } 
-         if (((PINB >> 5) & 1) == 0) {
+    if (((PINB >> 5) & 1) == 0) {
       lowerlimit -= 10 ;
       _delay_ms(100);
     } 
@@ -70,9 +70,14 @@ int main(void) {
     
 
     if (adc_reading >= lowerlimit && adc_reading < upperlimit) {
-      PORTD|= (1 << 2);           
-    } else {
-      PORTD &= ~(1 << 2);        
+      PORTD|= (1 << 2); 
+      LCD_Command(0x8E);
+      LCD_String("OK");          
+    } else {    
+      PORTD &= ~(1 << 2);   
+      LCD_Command(0x8D);
+      LCD_String("NOK");
+   
     }
   }
 
