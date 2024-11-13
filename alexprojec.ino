@@ -53,7 +53,7 @@ int main(void) {
       upperlimit += 10 ;
       _delay_ms(100);
     } 
-     if (((PIND >> 0) & 1) == 0) {
+    if (((PIND >> 0) & 1) == 0) {
       upperlimit -= 10 ;
       _delay_ms(100);
     }  
@@ -73,7 +73,8 @@ int main(void) {
       PORTD &= ~(1 << 2); 
       LCD_Command(0x8E);
       LCD_String("OK");          
-    } else {      
+    } 
+    else {      
       PORTD|= (1 << 2);
       LCD_Command(0x8D);
       LCD_String("NOK");
