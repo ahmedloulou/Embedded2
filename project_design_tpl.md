@@ -57,7 +57,14 @@ This code takes the value of an analogue sensor, compares it to upper and lower 
 
 
 ## Implementation of the Module
-This chapter discusses the detailed design of the module.
+This project uses Arduino to show analog-to-digital conversion (ADC) and display the digital signal on an LCD with changeable limit ranges via buttons. An analogue potentiometer, an LCD screen to show data, buttons for interactive range limit control, and an LED for feedback are the main hardware components. The Arduino's ADC digitises the potentiometer's analogue variable input signal. This digital reading and user-defined upper and lower limits are shown on a 16x2 LCD screen in real time.
+
+The system continuously reads the potentiometer's output and checks for limitations using the ADC. Four buttons let users dynamically alter these limits: two for the higher limit and two for the lower limit. A normal state is indicated by a "OK" LCD message and an off LED when the sensor reading is within the defined range. The LED and "NOK" message inform the user if the reading is outside this range.
+
+This configuration simulates real-world control systems. In a heating or cooling system, the potentiometer could replicate a thermostat dial and the ADC would transform the temperature setting into a digital display. In this example, the LCD would display the specified temperature and safe or desirable limits in real time. The potentiometer might be a dimmer switch for lighting control, with the ADC converting brightness levels into LCD percentages. The dynamic change of limits in both examples shows how users can interactively control and monitor analogue values in digital formats.
+
+This paper describes each software module's structure and functions as a low-level design specification. The system's underlying workings are explained by covering component interactions, embedded data structures, and design limitations. This design document establishes each component's functionality and role in the system, guiding coding and testing.
+
 
 ## Integration and Configuration
 ### Static Files
