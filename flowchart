@@ -1,0 +1,35 @@
+@startuml
+start
+
+:initialize_system;
+repeat
+if (upperlimit > potentiometer value > lowerliimit) then (yes)
+  :led turns off, display NOK on lcd;
+endif 
+if (potentiometer value out of range) then (yes)
+  :led and buzzer turn on, display OK on lcd;
+endif 
+if (button is pressed) then (yes)
+  :change the limit ;
+endif
+repeat while (true?)
+->no;
+stop
+@enduml@startuml
+start
+
+:initialize_system;
+repeat
+if (upperlimit > potentiometer value > lowerliimit) then (yes)
+  :led turns off, display NOK on lcd;
+endif 
+if (potentiometer value out of range) then (yes)
+  :led and buzzer turn on, display OK on lcd;
+endif 
+if (button is pressed) then (yes)
+  :change the limit ;
+endif
+repeat while (true?)
+->no;
+stop
+@enduml
